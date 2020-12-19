@@ -8,7 +8,7 @@ import time
 import json
 import requests
 
-bot_token = '<token>'
+bot_token = '1461648821:AAE9MDf5J-Hq35PqzTvXIRWttD8hNgeUH_Y'
 bot = telebot.TeleBot(bot_token)
 
 GROUP_ID = -329119522  # ID моей группы
@@ -49,7 +49,7 @@ def newuser(message):
     bot.send_chat_action(message.chat.id, 'typing')
     time.sleep(1)
     bot.send_message(
-        message.chat.id, 'Приветствую вас в чате @' + message.new_chat_member.first_name + ', я <b>бот</b>, и вот <u>правила</u> чата: \n'
+        message.chat.id, 'Приветствую вас в чате @' + message.new_chat_member.username + ', я <b>бот</b>, и вот <u>правила</u> чата: \n'
         '<b> · </b>Не оскорбляйте других участников, не создавайте конфликтных ситуаций. Давайте формировать комьюнити, а не ругаться.'
         '\n<b> · </b>Не используйте нецензурную лексику — сразу удалится ботом.'
         '\n<b> · </b>Мы любим полезные материалы — можете присылать ссылки и делиться ими с другими участниками.'
@@ -93,7 +93,7 @@ def check(message):
 def file_handler(message):
     global filescan
     url_file_scan = 'https://www.virustotal.com/vtapi/v2/file/scan'
-    params = dict(apikey='<api_key>')
+    params = dict(apikey='5f9496fa4717fa19180acf32219824b31e3ba0f576a9101f2f354b67fd41388e')
     file_upload_id = bot.get_file(message.document.file_id)
     url_upload_file = "https://api.telegram.org/file/bot{}/{}".format(bot_token, file_upload_id.file_path)
     recvfile = requests.get(url_upload_file)
