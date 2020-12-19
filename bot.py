@@ -8,7 +8,7 @@ import time
 import json
 import requests
 
-bot_token = '1461648821:AAE9MDf5J-Hq35PqzTvXIRWttD8hNgeUH_Y'
+bot_token = '<token>'
 bot = telebot.TeleBot(bot_token)
 
 GROUP_ID = -329119522  # ID моей группы
@@ -93,7 +93,7 @@ def check(message):
 def file_handler(message):
     global filescan
     url_file_scan = 'https://www.virustotal.com/vtapi/v2/file/scan'
-    params = dict(apikey='5f9496fa4717fa19180acf32219824b31e3ba0f576a9101f2f354b67fd41388e')
+    params = dict(apikey='<api_key>')
     file_upload_id = bot.get_file(message.document.file_id)
     url_upload_file = "https://api.telegram.org/file/bot{}/{}".format(bot_token, file_upload_id.file_path)
     recvfile = requests.get(url_upload_file)
